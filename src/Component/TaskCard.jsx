@@ -12,7 +12,7 @@ class TaskCard extends PureComponent {
                 <strong>John Smith</strong>{' '}
                 <span class="tag is-info is-light">frontend</span>
                 <br/>
-                <small>09:00 02-04-2020</small>
+                <small class="has-text-black">09:00 02-04-2020</small>
                 <br />
                 <div class="has-text-black">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
