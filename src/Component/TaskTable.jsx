@@ -34,7 +34,7 @@ class TaskTable extends BaseComponent {
       },
       userStore.data
     );
-    await this.uploadTask();
+    this.uploadTask();
     this.setState({
       input_title: '',
       input_description: '',
@@ -68,16 +68,16 @@ class TaskTable extends BaseComponent {
     }
   };
 
+  deleteTask = async (id) => {
+    await todosStore.deleteItem(id, userStore.data);
+    this.uploadTask();
+  };
+
   renderCard(status) {
+    let context = this;
     const data = todosStore.data.filter((key) => key.status === status);
     return data.map(function (todo, index) {
-      return (
-        <TaskCard
-          key={index}
-          deleteValue={(id) => todosStore.deleteItem(id, userStore.data)}
-          data={todo}
-        />
-      );
+      return <TaskCard key={index} onDelete={context.deleteTask} data={todo} />;
     });
   }
 
