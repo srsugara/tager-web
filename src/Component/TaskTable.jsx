@@ -140,7 +140,7 @@ class TaskTable extends BaseComponent {
             <article className="tile is-child notification is-black">
               <div className="content">
                 <p className="title">Add/Edit Task</p>
-                <p className="subtitle">With even more content</p>
+                <p className="subtitle">Ungkapkan tantanganmu disini !</p>
                 <div className="content">
                   <div className="field">
                     <div className="control">
@@ -215,7 +215,7 @@ class TaskTable extends BaseComponent {
             <article className="tile is-child notification is-warning">
               <div className="content">
                 <p className="title">Unstarted</p>
-                <p className="subtitle">With even more content</p>
+                <p className="subtitle">Jangan ragu untuk memulai !</p>
                 <div className="content">{this.renderCard('unstarted')}</div>
               </div>
             </article>
@@ -224,7 +224,7 @@ class TaskTable extends BaseComponent {
             <article className="tile is-child notification is-info">
               <div className="content">
                 <p className="title">Started</p>
-                <p className="subtitle">With even more content</p>
+                <p className="subtitle">Trial, Error, Trial lagi !</p>
                 <div className="content">{this.renderCard('started')}</div>
               </div>
             </article>
@@ -233,7 +233,7 @@ class TaskTable extends BaseComponent {
             <article className="tile is-child notification is-success">
               <div className="content">
                 <p className="title">Finished</p>
-                <p className="subtitle">With even more content</p>
+                <p className="subtitle">Saatnya apresiasi dirimu !</p>
                 <div className="content">{this.renderCard('finished')}</div>
               </div>
             </article>
