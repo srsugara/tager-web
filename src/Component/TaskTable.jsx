@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BaseComponent from './BaseComponent'
+import BaseComponent from '../BaseComponent'
 import TaskCard from './TaskCard';
 import todosStore from '../store/todos'
 import userStore from '../store/user'
