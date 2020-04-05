@@ -69,7 +69,17 @@ class TaskTable extends BaseComponent {
   };
 
   deleteTask = async (id) => {
-    await todosStore.deleteItem(id, userStore.data);
+    await todosStore.deleteItem(id);
+    this.uploadTask();
+  };
+
+  changeStatusTask = async (id, status) => {
+    if (status === 'unstarted') {
+      status = 'started';
+    } else if (status === 'started') {
+      status = 'finished';
+    }
+    await todosStore.editItem(id, { status });
     this.uploadTask();
   };
 
@@ -77,7 +87,14 @@ class TaskTable extends BaseComponent {
     let context = this;
     const data = todosStore.data.filter((key) => key.status === status);
     return data.map(function (todo, index) {
-      return <TaskCard key={index} onDelete={context.deleteTask} data={todo} />;
+      return (
+        <TaskCard
+          key={index}
+          onChangeStatus={context.changeStatusTask}
+          onDelete={context.deleteTask}
+          data={todo}
+        />
+      );
     });
   }
 

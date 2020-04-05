@@ -29,7 +29,14 @@ class TaskCard extends PureComponent {
               >
                 Delete
               </button>{' '}
-              <button className="button is-small">start</button>
+              <button
+                className="button is-small"
+                onClick={() =>
+                  this.props.onChangeStatus(props._id, props.status)
+                }
+              >
+                start
+              </button>
             </div>
           </div>
         </article>
