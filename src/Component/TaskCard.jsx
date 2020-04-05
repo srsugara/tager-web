@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 class TaskCard extends PureComponent {
+
   render() {
     let props
     if (this.props.data) {
@@ -25,7 +26,7 @@ class TaskCard extends PureComponent {
             </div>
             <div>
               <button className="button is-primary is-small">Edit</button>{' '}
-              <button className="button is-danger is-small">Delete</button>{' '}
+              <button className="button is-danger is-small" onClick={()=>this.props.deleteValue(props._id)}>Delete</button>{' '}
               <button className="button is-small">start</button>
             </div>
           </div>

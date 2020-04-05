@@ -6,11 +6,14 @@ import todosStore from '../store/todos';
 import userStore from '../store/user';
 
 class TaskTable extends BaseComponent {
-  state = {
-    input_title: '',
-    input_description: '',
-    input_tags: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      input_title: '',
+      input_description: '',
+      input_tags: '',
+    };
+  }
 
   componentDidMount() {
     this.unsubTodos = todosStore.subscribe(this.rerender);
@@ -68,7 +71,13 @@ class TaskTable extends BaseComponent {
   renderCard(status) {
     const data = todosStore.data.filter((key) => key.status === status);
     return data.map(function (todo, index) {
-      return <TaskCard key={index} data={todo} />;
+      return (
+        <TaskCard
+          key={index}
+          deleteValue={(id) => todosStore.deleteItem(id, userStore.data)}
+          data={todo}
+        />
+      );
     });
   }
 
