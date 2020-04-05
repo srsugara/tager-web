@@ -12,7 +12,7 @@ class TaskTable extends BaseComponent {
       input_title: '',
       input_description: '',
       input_tags: '',
-      id: ''
+      id: '',
     };
   }
 
@@ -90,7 +90,7 @@ class TaskTable extends BaseComponent {
       input_title: data.title,
       input_description: data.description,
       input_tags: data.tags,
-    })
+    });
   };
 
   editTask = async () => {
@@ -98,7 +98,7 @@ class TaskTable extends BaseComponent {
       title: this.state.input_title,
       description: this.state.input_description,
       tags: this.state.input_tags,
-    })
+    });
     this.uploadTask();
     this.setState({
       id: '',
@@ -106,7 +106,7 @@ class TaskTable extends BaseComponent {
       input_description: '',
       input_tags: '',
     });
-  }
+  };
 
   renderCard(status) {
     let context = this;
@@ -131,14 +131,10 @@ class TaskTable extends BaseComponent {
           halo {userStore.data.email}{' '}
           <button onClick={this.logout}>logout</button>
         </p>
-
-        <h2>
-          todos:{' '}
-          <button onClick={this.uploadTask}>
-            {`upload (${todosStore.countUnuploadeds()})`}
-          </button>
-        </h2>
-        <pre>last upload: {todosStore.dataMeta.tsUpload}</pre>
+        <button className="button is-primary" onClick={this.uploadTask}>
+          Reprocess ({todosStore.countUnuploadeds()} data)
+        </button>
+        <hr />
         <div className="tile is-ancestor">
           <div className="tile is-parent">
             <article className="tile is-child notification is-black">
@@ -180,18 +176,36 @@ class TaskTable extends BaseComponent {
                     </div>
                   </div>
                   <div className="control">
-                    <button
-                      className="button is-primary"
-                      onClick={this.addTask}
-                    >
-                      Generate
-                    </button>{' '}
-                    <button
-                      className="button is-warning"
-                      onClick={this.editTask}
-                    >
-                      Edit
-                    </button>
+                    {this.state.id === '' ? (
+                      <button
+                        className="button is-primary"
+                        onClick={this.addTask}
+                      >
+                        Generate
+                      </button>
+                    ) : (
+                      <div>
+                        <button
+                          className="button is-warning"
+                          onClick={this.editTask}
+                        >
+                          Edit
+                        </button>{' '}
+                        <button
+                          className="button"
+                          onClick={() =>
+                            this.setState({
+                              id: '',
+                              input_title: '',
+                              input_description: '',
+                              input_tags: '',
+                            })
+                          }
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
