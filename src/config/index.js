@@ -4,4 +4,5 @@ export default {
     username: 'admin',
     password: 'iniadmin',
   },
+  dbName: 'tager'
 };
