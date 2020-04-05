@@ -3,36 +3,27 @@ import React, { PureComponent } from 'react';
 class TaskCard extends PureComponent {
   render() {
     return (
-      <div class="card">
-        <header class="card-header">
-          <p class="card-header-title">Component</p>
-          <a href="#" class="card-header-icon" aria-label="more options">
-            <span class="icon">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </a>
-        </header>
-        <div class="card-content">
-          <div class="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            nec iaculis mauris.
-            <a href="#">@bulmaio</a>. <a href="#">#css</a>{' '}
-            <a href="#">#responsive</a>
-            <br />
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
           </div>
-        </div>
-        <footer class="card-footer">
-          <a href="#" class="card-footer-item">
-            Save
-          </a>
-          <a href="#" class="card-footer-item">
-            Edit
-          </a>
-          <a href="#" class="card-footer-item">
-            Delete
-          </a>
-        </footer>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>John Smith</strong> <span class="tag is-info is-light">frontend</span>{' '}
+                <small>09:00 02-04-2020</small>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                efficitur sit amet massa fringilla egestas. Nullam condimentum
+                luctus turpis.
+              </p>
+            </div>
+            <div>
+              <button class="button is-primary is-small">Edit</button>{' '}
+              <button class="button is-danger is-small">Delete</button>
+            </div>
+          </div>
+        </article>
       </div>
     );
   }
