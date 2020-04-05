@@ -2,6 +2,10 @@ import React, { PureComponent } from 'react';
 
 class TaskCard extends PureComponent {
   render() {
+    let props
+    if (this.props.data) {
+      props = this.props.data
+    }
     return (
       <div className="box">
         <article className="media">
@@ -9,15 +13,13 @@ class TaskCard extends PureComponent {
           <div className="media-content">
             <div className="content">
               <div>
-                <strong>John Smith</strong>{' '}
-                <span className="tag is-info is-light">frontend</span>
+                <strong>{props.title}</strong>{' '}
+                <span className="tag is-info is-light">{props.tags}</span>
                 <br/>
-                <small className="has-text-black">09:00 02-04-2020</small>
+                <small className="has-text-black">{props.created_date}</small>
                 <br />
                 <div className="has-text-black">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aenean efficitur sit amet massa fringilla egestas. Nullam
-                  condimentum luctus turpis.
+                  {props.description}
                 </div>
               </div>
             </div>
