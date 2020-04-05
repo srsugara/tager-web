@@ -139,7 +139,7 @@ class TaskTable extends BaseComponent {
           <div className="tile is-parent">
             <article className="tile is-child notification is-black">
               <div className="content">
-                <p className="title">Add Task</p>
+                <p className="title">Add/Edit Task</p>
                 <p className="subtitle">With even more content</p>
                 <div className="content">
                   <div className="field">
