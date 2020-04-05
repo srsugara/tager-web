@@ -16,7 +16,7 @@ class TaskCard extends PureComponent {
                 <strong>{props.title}</strong>{' '}
                 <span className="tag is-info is-light">{props.tags}</span>
                 <br />
-                <small className="has-text-black">{props.created_date}</small>
+                <small className="has-text-black">{props.dirtyAt}</small>
                 <br />
                 <div className="has-text-black">{props.description}</div>
               </div>
