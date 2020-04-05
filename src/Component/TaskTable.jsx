@@ -12,6 +12,7 @@ class TaskTable extends BaseComponent {
       input_title: '',
       input_description: '',
       input_tags: '',
+      id: ''
     };
   }
 
@@ -83,6 +84,30 @@ class TaskTable extends BaseComponent {
     this.uploadTask();
   };
 
+  getEditTask = (data) => {
+    this.setState({
+      id: data._id,
+      input_title: data.title,
+      input_description: data.description,
+      input_tags: data.tags,
+    })
+  };
+
+  editTask = async () => {
+    await todosStore.editItem(this.state.id, {
+      title: this.state.input_title,
+      description: this.state.input_description,
+      tags: this.state.input_tags,
+    })
+    this.uploadTask();
+    this.setState({
+      id: '',
+      input_title: '',
+      input_description: '',
+      input_tags: '',
+    });
+  }
+
   renderCard(status) {
     let context = this;
     const data = todosStore.data.filter((key) => key.status === status);
@@ -90,6 +115,7 @@ class TaskTable extends BaseComponent {
       return (
         <TaskCard
           key={index}
+          onEdit={context.getEditTask}
           onChangeStatus={context.changeStatusTask}
           onDelete={context.deleteTask}
           data={todo}
@@ -159,6 +185,12 @@ class TaskTable extends BaseComponent {
                       onClick={this.addTask}
                     >
                       Generate
+                    </button>{' '}
+                    <button
+                      className="button is-warning"
+                      onClick={this.editTask}
+                    >
+                      Edit
                     </button>
                   </div>
                 </div>
