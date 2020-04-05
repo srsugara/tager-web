@@ -34,14 +34,18 @@ class TaskCard extends PureComponent {
               >
                 Delete
               </button>{' '}
-              <button
-                className="button is-small"
-                onClick={() =>
-                  this.props.onChangeStatus(props._id, props.status)
-                }
-              >
-                start
-              </button>
+              {props.status !== 'finished' ? ( 
+                <button
+                  className="button is-small"
+                  onClick={() =>
+                    this.props.onChangeStatus(props._id, props.status)
+                  }
+                >
+                  {props.status === 'unstarted' ? 'start' : 'finish'}
+                </button>
+              ) : (
+                ''
+              )}
             </div>
           </div>
         </article>
