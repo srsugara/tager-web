@@ -124,15 +124,21 @@ class TaskTable extends BaseComponent {
     });
   }
 
+  logout = async () => {
+    await todosStore.deinitialize();
+    await userStore.deleteSingle();
+  };
+
   render() {
     return (
       <div>
-        <p>
-          halo {userStore.data.email}{' '}
-          <button onClick={this.logout}>logout</button>
-        </p>
+        <p>Hai, {userStore.data.email} !</p>
+        <br />
         <button className="button is-primary" onClick={this.uploadTask}>
           Reprocess ({todosStore.countUnuploadeds()} data)
+        </button>{' '}
+        <button className="button is-danger" onClick={this.logout}>
+          Logout
         </button>
         <hr />
         <div className="tile is-ancestor">
