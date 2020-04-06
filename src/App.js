@@ -111,13 +111,13 @@ class Login extends BaseComponent {
                         type="email"
                         value={this.state.email}
                         onChange={this.setInputEmail}
-                        placeholder="Email"
+                        placeholder="name@gmail.com"
                       />
                     </p>
                     <br />
                     <p className="control">
                       <button
-                        className="button is-primary is-medium is-fullwidth"
+                        className="button is-primary is-fullwidth"
                         onClick={this.submit}
                       >
                         Login
