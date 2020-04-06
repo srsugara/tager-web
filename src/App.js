@@ -63,52 +63,7 @@ class Login extends BaseComponent {
     email: '',
   };
 
-  render() {
-    return (
-      <div>
-        <section class="hero is-fullheight is-medium is-primary is-bold">
-          <div class="hero-body">
-            <div class="container">
-              <div class="columns is-centered">
-                <article class="card is-rounded">
-                  <br />
-                  <center>
-                    <h1 className="title">
-                      <div className="has-text-black">Tager Login</div>
-                    </h1>
-                  </center>
-                  <div class="card-content">
-                    <p class="control has-icon">
-                      <input
-                        class="input"
-                        type="email"
-                        value={this.state.email}
-                        onChange={this.setInput_email}
-                        placeholder="Email"
-                      />
-                      <i class="fa fa-envelope"></i>
-                    </p>
-                    <br />
-                    <p class="control">
-                      <button
-                        class="button is-primary is-medium is-fullwidth"
-                        onClick={this.submit}
-                      >
-                        <i class="fa fa-user"></i>
-                        Login
-                      </button>
-                    </p>
-                  </div>
-                </article>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
-
-  setInput_email = (event) => {
+  setInputEmail = (event) => {
     this.setState({
       email: (event.target.value || '').trim(),
     });
@@ -134,6 +89,49 @@ class Login extends BaseComponent {
       email: this.state.email,
     });
   };
+
+  render() {
+    return (
+      <div>
+        <section className="hero is-fullheight is-medium is-primary is-bold">
+          <div className="hero-body">
+            <div className="container">
+              <div className="columns is-centered">
+                <article className="card is-rounded">
+                  <br />
+                  <center>
+                    <h1 className="title">
+                      <div className="has-text-black">Tager Login</div>
+                    </h1>
+                  </center>
+                  <div className="card-content">
+                    <p className="control">
+                      <input
+                        className="input"
+                        type="email"
+                        value={this.state.email}
+                        onChange={this.setInputEmail}
+                        placeholder="Email"
+                      />
+                    </p>
+                    <br />
+                    <p className="control">
+                      <button
+                        className="button is-primary is-medium is-fullwidth"
+                        onClick={this.submit}
+                      >
+                        Login
+                      </button>
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 }
 
 export default App;
