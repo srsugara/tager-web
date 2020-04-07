@@ -24,7 +24,7 @@ class App extends BaseComponent {
       <div className="App">
         <section className="section">
           <div className="container">
-            <h1 className="title">Tagger Web</h1>
+            <h1 className="title">Tager Web</h1>
             <h2 className="subtitle">
               A simple application to manage your <strong>task</strong>.
             </h2>
