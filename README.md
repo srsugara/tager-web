@@ -25,6 +25,18 @@ yarn build
 yarn test
 ```
 
+## Installation using Docker
+
+``` bash
+# pull image
+git clone git@github.com:srsugara/tager-web.git
+
+# run container
+docker run --name tager-web -t -p 3000:3000 -d srsugara/tager-web
+
+# open locahost:3000 on your browser
+```
+
 ## Features
 - Show existing task list
 - Create task
