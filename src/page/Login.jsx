@@ -13,6 +13,10 @@ class Login extends BaseComponent {
         email: (event.target.value || '').trim(),
       });
     };
+
+    setId = () => {
+      return this.state.email.split('@').shift().replace(/\W/g, '')
+    }
   
     submit = async (event) => {
       event.preventDefault();
@@ -26,8 +30,7 @@ class Login extends BaseComponent {
         return;
       }
       
-      let id = this.state.email;
-      id = id.split('@').shift().replace(/\W/g, '');
+      let id = this.setId();
   
       await userStore.editSingle({
         id,

@@ -17,11 +17,11 @@ it('check email state from input', () => {
   expect(wrapper.state('email')).toEqual('syauqi@gmail.com');
 });
 
-// it('login check with right data format', () => {
-//   const wrapper = shallow(<Login />);
-//   wrapper
-//     .find('input[type="email"]')
-//     .simulate('change', { target: { value: 'syauqi@gmail.com' } });
-//   wrapper.find('button').simulate('click');
-//   expect(wrapper.state('email')).toEqual('syauqi@gmail.com');
-// });
+it('login check with right data format', () => {
+  const wrapper = shallow(<Login />);
+  wrapper
+    .find('input[type="email"]')
+    .simulate('change', { target: { value: 'syauqi@gmail.com' } });
+  wrapper.find('button').simulate('click');
+  expect(wrapper.instance().setId()).toEqual('syauqi');
+});
