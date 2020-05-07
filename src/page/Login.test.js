@@ -17,7 +17,7 @@ it('check email state from input', () => {
   expect(wrapper.state('email')).toEqual('syauqi@gmail.com');
 });
 
-it('login check with right data format', () => {
+it('login check id with right data format', () => {
   const wrapper = shallow(<Login />);
   wrapper
     .find('input[type="email"]')
