@@ -1,11 +1,6 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-class TaskCard extends PureComponent {
-  render() {
-    let props;
-    if (this.props.data) {
-      props = this.props.data;
-    }
+function TaskCard (props) {
     return (
       <div className="box">
         <article className="media">
@@ -13,35 +8,35 @@ class TaskCard extends PureComponent {
           <div className="media-content">
             <div className="content">
               <div>
-                <strong>{props.title}</strong>{' '}
-                <span className="tag is-info is-light">{props.tags}</span>
+                <strong>{props.data.title}</strong>{' '}
+                <span className="tag is-info is-light">{props.data.tags}</span>
                 <br />
-                <small className="has-text-black">{props.dirtyAt}</small>
+                <small className="has-text-black">{props.data.dirtyAt}</small>
                 <br />
-                <div className="has-text-black">{props.description}</div>
+                <div className="has-text-black">{props.data.description}</div>
               </div>
             </div>
             <div>
               <button
                 className="button is-primary is-small"
-                onClick={() => this.props.onEdit(props)}
+                onClick={() => props.onEdit(props.data)}
               >
                 Edit
               </button>{' '}
               <button
                 className="button is-danger is-small"
-                onClick={() => this.props.onDelete(props._id)}
+                onClick={() => props.onDelete(props.data._id)}
               >
                 Delete
               </button>{' '}
-              {props.status !== 'finished' ? ( 
+              {props.data.status !== 'finished' ? ( 
                 <button
-                  className="button is-small"
+                  className="button is-small status"
                   onClick={() =>
-                    this.props.onChangeStatus(props._id, props.status)
+                    props.onChangeStatus(props.data._id, props.data.status)
                   }
                 >
-                  {props.status === 'unstarted' ? 'start' : 'finish'}
+                  {props.data.status === 'unstarted' ? 'start' : 'finish'}
                 </button>
               ) : (
                 ''
@@ -50,8 +45,7 @@ class TaskCard extends PureComponent {
           </div>
         </article>
       </div>
-    );
-  }
+    )
 }
 
 export default TaskCard;
